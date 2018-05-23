@@ -1,0 +1,125 @@
+# This is a simple text adventure written in python, demonstrating the use of
+# functions, flow control, and randomness.
+
+import time
+import random
+
+sleep_time = 0.1
+has_sword = False
+has_kebab = False
+def print_sleep(text, sleep = sleep_time):
+    print (text)
+    time.sleep (sleep)
+
+def leave_game():
+    print_sleep("You find the exit, and leave. The air is much nicer out here.")
+    print_sleep("Thank you for playing Text Adventure!")
+    exit()
+
+def attempt_run():
+        success = random.randint(1, 4) == 1
+
+        if success:
+            print_sleep("You managed to escape!")
+            leave_game()
+
+        print_sleep("You could not escape.")
+
+
+print_sleep ("Welcome to Text Adventure\n")
+print_sleep ("You are in a cave")
+print_sleep ("It is dark.")
+
+print("What do you do?")
+print("1) Leave")
+print("2) Walk further")
+
+choice = int(input("Choice (enter a number): "))
+
+if choice == 1:
+    leave_game()
+
+# At this point, the player has chosen to enter the cave!
+
+print_sleep("You enter the cave.")
+print_sleep("You see something shiny on the floor.")
+
+choice = input("Do you pick it up? (y/n)")
+
+if choice == "y":
+    print_sleep("You pick up the object.")
+    print_sleep("It is a sword!")
+    has_sword = True
+
+else:
+    print_sleep("You ignore the object. It could have been useful...")
+
+print_sleep("You continue walking.")
+print_sleep("You thought you might have heard a strange noise.")
+print_sleep("Around the corner is a huge spider.")
+
+choice = input("Do you run? (y/n)")
+
+if choice == "y":
+    attempt_run()
+
+print_sleep("The spider attacks!")
+
+print_sleep("What do you do?")
+print("1) Run")
+print("2) Attack")
+
+choice = int(input("Choice: "))
+
+if choice == 1:
+    attemt_run()
+
+    print_sleep("The spider strikes.")
+    print_sleep("You are never seen again.")
+    leave_game()
+
+print_sleep("You take a swing at the spider.")
+
+if has_sword:
+    print_sleep("It's a good job you picked up the sword!")
+    print_sleep("You manage to overcome the spider.")
+    print_sleep("You continue walking.")
+
+
+    choice = input("you come across two fine dining places!! (GDK/tinseltown)")
+
+    if choice == "GDK":
+      print_sleep("OK with the 3 fingers up emojis x5")
+      choice = input("you see a kebab. would you like to pick it up? (y/n)")
+      if choice == "y":
+        print_sleep("you pick up the kebab")
+        print_sleep("well done. good job!")
+        has_kebab = True
+
+        print_sleep("you see a creature approaching")
+        choice = input("what would you like to do?((1)eat the kebab? (2)run away with the kebab? (3)wait for the chinese man to come help you out, please be reminded that he is quite emotional. His name is Wailun. He works at informa and may be quite basic at times.")
+
+        if choice == "1":
+          print_sleep("well done you're quite wise")
+          print_sleep("unfortunatly, the creature doesn't give a shit and kills you.")
+          exit()
+        if choice == "2":
+          print_sleep("good shit. you picked the right option. save the kebab first then your life. GDK for life.")
+          print_sleep("now you're safe")
+          exit()
+        if choice == "3":
+          success = random.randint(1,4)
+          if success == 1:
+            print_sleep("the chinese man finally showed up")
+            print_sleep("too bad he's useless and you still die")
+            exit()
+          else:
+            print_sleep("he has an empotional breakdown and cannot make it, sorry mate.")
+            print_sleep("you ded")
+            exit()
+else:
+  print_sleep("You try to attack the spider.")
+  print_sleep("Bare hands are not very effective.")
+  print_sleep("The spider strikes.")
+  print_sleep("You are never seen again.")
+  leave_game()

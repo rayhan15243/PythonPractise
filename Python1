@@ -1,0 +1,56 @@
+import time
+import random
+
+has_sword = False
+
+def print_sleep(string):
+  print(string)
+  time.sleep(0.5)
+
+print_sleep("Welcome to Text Adventure")
+print_sleep("You are in a cave")
+
+print_sleep("What do you want to do")
+print("1) leave the cave")
+print("2) go further")
+
+choice = int(input("Choice: "))
+
+if choice == 1:
+    print_sleep("You leave the cave")
+    print_sleep("The air is nicer out here")
+    exit()
+
+print_sleep("You go further into the cave")
+print_sleep("You see something strnge on the floor.")
+
+choice = input("Pick it up (y/n) ")
+
+if choice == "y":
+    print_sleep("You pick up the item")
+    print_sleep("It is a sword")
+    has_sword = True
+
+print_sleep("You walk further into the cave")
+print_sleep("You herar a strange noise")
+print_sleep("Around the corner is a huge spider")
+
+choice = raw_input("Do you try to run? (y/n)")
+
+if choice == "y":
+  success  = random.randit(1,4)
+
+if success == 1:
+      print_sleep("Running awat was sucessfull")
+      print_sleep("Thank you for playing")
+      exit()
+
+print_sleep("Runnng away was not sucessfull")
+
+if has_sword:
+  print_sleep("You attack the spider")
+  print_sleep("You defeat the spider")
+else:
+  print_sleep("The spider defeats you")
+  print_sleep('You have lost. Thank you for playing')
+  exit()
